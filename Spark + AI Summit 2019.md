@@ -128,7 +128,7 @@
   * RAM backed volumesと一緒にemptyDirをマウントともう一個（tmpfs）
   * 対策するとyarn上のSparkよりも早くなった!
   * でも、[tpcds@1000](http://www.tpc.org/tpcds/)で見るとやはり遅い…
-  * kubeletの使用するデイスクがスケールしない？
+  * [kubelet](https://qiita.com/tkusumi/items/c2a92cd52bfdb9edd613#kubelet)の使用するデイスクがスケールしない？
   * RAM backed media as spark scratch space
   * ワークアラウンドによって、場合によっては速度が上回る
 
@@ -296,42 +296,88 @@
 #### Keynote F - Winning the Audience with AI: Comcast’s Journey to Building an Agile Data and AI Platform at Scale
 
 * Jan Neumann (Comcast),Jim Forsythe (Comcast)
+* DeltaLakeをフル活用してて魅力を説明
+* 運用を開始してからのライフサイクルを回すスピードに課題
+* 開発環境と本番環境を繋ぐのにMLflowを使い、kubeflowを使って本番環境を提供することで解決
 
 #### Keynote G - How Netflix Data Science Powers Global Entertainment
 
 * Caitlin Smallwood (Netflix)
+* 動画のレコメンデーションの話
+* 動画一つでもその内容やロケ地、ストーリーラインなどなどで深くタグ付けされる
+* 世界の様々な言語、大量に集まるデータを捌いたりとても難しいチャレンジをし続けている
 
 #### Keynote H
 
-#### Michael I. 
-
-* Jordan (UC Berkeley)
+* [Michael I.Jordan (UC Berkeley)](https://medium.com/syncedreview/michael-i-jordan-interview-clarity-of-thought-on-ai-ed936d0dc421)
+* 現在、知能システムと呼べるものは以下
+  * 生き物の脳と心
+  * マーケット
+* 人を模倣したAIは正しいゴールではない
+* AI(aka ML) Successes
+  * backend
+  * human
+  * pattern recoginition <- now
+  * markets
+* Decisions
+  * シンプルな意思決定
+  * コンペ式の複数の意思決定
+      * みんなが良いと言うもの選ぶことが正しいとは限らない
+  * 代替手段が「マーケット」の構築
 
 ### 11:00 AM
 
 #### Introduction to TensorFlow 2.0
 
 * Paige Bailey (Google)
-* 
-
-### 11:50 AM
-
-#### Scaling Ride-Hailing with Machine Learning on MLflow
-
-* Willem Pienaar (GOJEK),Md Jawad (GOJEK)
-
+* Google Colab使っている人少ない（Python使っている人って聞くと沢山いるのに）
+* AI/MLの基本の説明
+* 古典的機械学習
+	* データは大抵綺麗に揃っていない
+	* データの形式も様々
+	* 特徴量エンジニアリングは大変
+* 深層学習
+	* 画像
+	* テキスト
+	* 音声
+	* などなどに強い
+* 自分のモデルを作りたい
+	* Tendor Flow
+	* Tensor Flow Hubで公開
+	* Colabと連携してノートブックも公開できる
+	* TFはGithubへのコミット数もSOFへの投稿も一位
+	* TF.jsの紹介
+* [TensorFlow 2.0 alpha](https://medium.com/tensorflow/whats-coming-in-tensorflow-2-0-d3663832e9b8)
+	* tf.keras
+	* Egaer extension by default
+	* Remove duplicate functionality
+	* Consistent, intuitive syntax axross APOs
+	* などなど
+	* データセット強化
+* どうアップグレードする？
+	* 互換モード
+	* 移行ガイド
+	* コンバージョンスクリプト
 
 ### 1:30 PM
 
 #### Keynote J - Understanding the limitations of AI: When Algorithms Fail
 
 * Timnit Gebru (Google Brain) 
+* 引用されてたスライドの[動画](https://www.youtube.com/watch?v=Af2VmR-iGkY)
+* Fairnessの話
+* [黒人の存在感がない](https://blackinai.github.io/)
+* 我々は社会問題、構造的な問題を無視できない
+* 電子機器のようにデータセットのデータシートが必要では
+* 
 
 #### Keynote K
 
 * Anitha Vijayakumar (Google)
+* TensorFlow 2.0の話
+* Databricks Runtime for ML では TensorFlow をサポート
 
-#### Keynote L
+#### Keynote L Deep Visual Understanding from deep learning
 
 * Jitendra Malik (Facebook AI Research)
 
@@ -340,12 +386,31 @@
 #### How to Utilize MLflow and Kubernetes to Build an Enterprise ML Platform
 
 * Nicholas Pinckernell (Comcast)
+* モデルを書き換えず、簡単にトラッキングできる環境づくりがしたい
+	* mlflowとk8sに行き着く
+	* SageMakerって言葉も出てたけど、検討して採用しなかったってことか？
+* 頻繁にモデルを更新、変更したり開発するに当たってmlflowは便利みたい¥
+* 運用時のモニタリングに[Grafana](https://grafana.com/)
 
 ### 3:30 PM
 
 #### Advanced Hyperparameter Optimization for Deep Learning with MLflow
 
 * Maneesh Bhide (Databricks)
+* HyperBand
+	* 最高のモデルではなく、そこそこ良くて早いモデルが良い
+	* AWSでインスタンス建ててHPをチューニングするとなると大変お金かかる
+	* HyperBandを用いてあげるとそこそこ良いモデルをお安く作れる
+	* Baysian + HyperBand
+		* ランダムよりも効率的
+		* Basian Optimizationよりも20xスピードアップ
+	* Kears/TF Early Stopping
+		* Baysian + HyperBandと同じではないので注意
+	* ライブラリ
+		* <https://github.com/automl/HpBandSter>
+		* <https://github.com/automl/RoBO/blob/master/robo/fmin/fabolas.py>
+	* [Hyperparameters tuned when training MemN2N and associated range values](https://devblogs.nvidia.com/optimizing-end-to-end-memory-networks-using-sigopt-gpus/)
+* ユースケース毎に複数最適化する対象がある
 
 ### 4:40 PM
 
