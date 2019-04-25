@@ -28,7 +28,8 @@
       * Alanlyze small datasets -> Pandas
       * Alanlyze large datasets -> Pandas?
       * Spark DataFrameとPandasDataFrameは書き方が違うので覚えづらい
-      * Koalas : Pandas DataFrame API for Spark
+      * [Koalas : Pandas DataFrame API for Spark](https://github.com/databricks/koalas
+)
   * Koalasのデモ
   * Pandasの書き方でSparkDataFrameを使う
   * ex) pandas.get_dammies() -> koalas.get_dammies()
@@ -121,6 +122,7 @@
   * k8sで動かすSparkの状況について説明
   * 各サービス単位でPodを分割し独立で動作
   * MetastoreやLivy Serverをk8s clusterとしてまとめ上げる
+  * [Pod? Cluster?](https://medium.com/google-cloud/kubernetes-101-pods-nodes-containers-and-clusters-c1509e409e16)
 * yarn上のSparkよりもk8sのSparkは遅い
   * 根本原因を分析した結果、emptyDirというエフェメラルなディスクに問題がある
   * RAM backed volumesと一緒にemptyDirをマウントともう一個（tmpfs）
@@ -188,21 +190,57 @@
   * Bayesian Optimization
   * Open Source Tools（写真に収めた）
 * mlflowでのプラクティス
-  * 
+  * ハイパーパラメータ、メトリクス、タグ、アーティファクトを記録できるmlflow
+  * 再現性のある環境の提供など、優れた研究環境を提供
+  * 試行錯誤を記録できるので効率的なチューニングができるねって話
 * この話の先
+  * 並列での探索、アーリー・ストッピング、転移学習なんてのもあるね
 
 ### 3:20 PM
 
 #### A Virtual Assistant Ecosystem for Workflow and Workplace Optimization
 
-*Rafael Dal Zotto (HP),Franco Vieira (HP)
+* Rafael Dal Zotto (HP),Franco Vieira (HP)
+* 自然言語からSQLを生成する（SEQ2SQLなど）
+* インテント・レコグニションやチャットボットのプラットフォームはAWS　LEX
+* 割とよくあるチャットボット使った業務最適化の話
+* 音声のボットもある
 
 ### 4:30 PM
 
 #### How Graph Technology is Changing AI
 
 * Jake Graham (Neo4j),Alicia Frame (Neo4j)
-
+* Where do graphs matter?
+  * Finance Crime Detection
+  * Drug Discovery
+  * Recommendations
+  * Customer Segmentation
+  * Cybersecurity
+  * Churn Prediction
+  * Predictive Meintenance
+  * Search / MDM
+* Labeled Property Graph
+  *  世の中の多くのことを表せそう
+* DeepMindもGoogleもみんな注目して研究している
+* Spark Graph <-> Neo4j Morpheus <-> Neo4j Graph Platform
+  * グラフの探索はSpark、グラフを構築するのはNeo4jという使い分け
+* 実例の紹介
+  * ナレッジグラフ→グラフ特徴量エンジニアリング→グラフネイティブ学習の順に複雑になる
+  * [Knowledge Graph](https://neo4j.com/blog/nasa-critical-data-knowledge-graph/)の話
+  * Drug Discoveryの話het.io
+* グラフ特徴量エンジニアリング
+  * グラフの代表的特徴（in Neo４j)
+      * Community Detection
+      * Centrality / Importance
+      * Pathfinding / Search
+      * Heuristic link prediction
+      * Embededdings
+      * Similarity
+  * 事例：金融機関での不正検知
+  * 事例：ebay
+  * Graph Native Learning
+  * O'REILLY から本出てる 
 ### 5:20 PM
 
 #### Tackling Network Bottlenecks with Hardware Accelerations: Cloud vs. On-Premise
