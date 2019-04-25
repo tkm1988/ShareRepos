@@ -228,7 +228,7 @@
 * 実例の紹介
   * ナレッジグラフ→グラフ特徴量エンジニアリング→グラフネイティブ学習の順に複雑になる
   * [Knowledge Graph](https://neo4j.com/blog/nasa-critical-data-knowledge-graph/)の話
-  * Drug Discoveryの話het.io
+  * Drug Discoveryの話[het.io](https://het.io/)
 * グラフ特徴量エンジニアリング
   * グラフの代表的特徴（in Neo４j)
       * Community Detection
@@ -246,5 +246,116 @@
 #### Tackling Network Bottlenecks with Hardware Accelerations: Cloud vs. On-Premise
 
 * Yuval Degani (LinkedIn),Jithin Jose (Microsoft)
+* Network BOttleneck in th wild
+  * バンド幅によってのみ引き起こされるような簡単な話でもない
+  * ネットワークのトラフィックはシャッフルReadが多い
+  * 分散トレーニングでのモデルのトレーニングでGPUとの間のネットワークがボトルネックに
+  * ストレージについてもストレージ自体が高速化しても大容量データの移動が多くなってきているのでネットワークがボトルネックに
+* 主要なハードウェアアクセラレーション
+  * Speeds
+      * 1G, 10G, 40G, ...
+  * InfiniBand
+      * Hi-Performance ComputingのDefact Standard
+  * RDMA : Remote Direct Memory Access
+      * Direct Network Card
+  * NVIDIA GPU Direct
+      *  No CPU Overhead
+  * Smart NIC : FPGA / ASIC Offloads
+  * Smart Switch
+  * NVMeOF
+* Azureの話
 
 ## THURSDAY, APRIL 25
+
+### 9:00 AM
+
+#### Keynote E - Accelerating the Machine Learning Lifecycle with MLflow 1.0
+
+* Matei Zaharia (Databricks),Aaron Davidson (Databricks),Greg Buehrer (Microsoft)
+* 機械学習環境は複雑
+* ML Lifecycle
+  * data prep(need Tuning) -> training(need Tuneing) -> deployment -> raw data
+  * 様々なフレームワークやライブラリがある
+  * 運用やガバナンスも気にしなければならない
+  * 各社様々な環境を用意
+      * Facebook FBLearner
+      * Uber Michelangelo
+      * Google TFC
+  * 限られたアルゴリズムやフレームワーク、１つの会社に依存
+  * MLflowはその解決策
+* MLFlowの紹介
+  * 開発が盛んとSparkの状況と比較してアピール
+  * Azureでも使えるよって話でマイクロソフトの人が説明
+* What's next for mlflow?
+  * user feedbackを元にコンポーネント開発しているよ
+  * アナウンス
+      * MLflow Workflows(Apache Airflowみたいなもの)
+      * MLflow Model Registry
+      * DatabricksでマネージドMLflowを今GAした
+
+#### Keynote F - Winning the Audience with AI: Comcast’s Journey to Building an Agile Data and AI Platform at Scale
+
+* Jan Neumann (Comcast),Jim Forsythe (Comcast)
+
+#### Keynote G - How Netflix Data Science Powers Global Entertainment
+
+* Caitlin Smallwood (Netflix)
+
+#### Keynote H
+
+#### Michael I. 
+
+* Jordan (UC Berkeley)
+
+### 11:00 AM
+
+#### Introduction to TensorFlow 2.0
+
+* Paige Bailey (Google)
+* 
+
+### 11:50 AM
+
+#### Scaling Ride-Hailing with Machine Learning on MLflow
+
+* Willem Pienaar (GOJEK),Md Jawad (GOJEK)
+
+
+### 1:30 PM
+
+#### Keynote J - Understanding the limitations of AI: When Algorithms Fail
+
+* Timnit Gebru (Google Brain) 
+
+#### Keynote K
+
+* Anitha Vijayakumar (Google)
+
+#### Keynote L
+
+* Jitendra Malik (Facebook AI Research)
+
+### 2:40 PM
+
+#### How to Utilize MLflow and Kubernetes to Build an Enterprise ML Platform
+
+* Nicholas Pinckernell (Comcast)
+
+### 3:30 PM
+
+#### Advanced Hyperparameter Optimization for Deep Learning with MLflow
+
+* Maneesh Bhide (Databricks)
+
+### 4:40 PM
+
+#### Massive-Scale Entity Resolution Using the Power of Apache Spark and Graph
+
+* Max Melnick (Deloitte Consulting LLP)
+
+
+### 5:30 PM
+
+#### Splice Machine's use of Apache Spark and MLflow
+
+* Gene Davis (Splice Machine)
