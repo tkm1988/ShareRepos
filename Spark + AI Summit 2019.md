@@ -432,5 +432,6 @@
 #### Splice Machine's use of Apache Spark and MLflow
 
 * Gene Davis (Splice Machine)
-* なんでSageMaker使わなかったのかわからんかった
-	* 制御したいところが制御できないからに聞こえたが・・・怪しい
+* SageMakerにデプロイしてる
+	* SageMakerは勝手にスケールしてくれる？からプロダクションに利用
+	* JupyterではなくZeppelinを使っている
