@@ -410,17 +410,27 @@
 		* <https://github.com/automl/HpBandSter>
 		* <https://github.com/automl/RoBO/blob/master/robo/fmin/fabolas.py>
 	* [Hyperparameters tuned when training MemN2N and associated range values](https://devblogs.nvidia.com/optimizing-end-to-end-memory-networks-using-sigopt-gpus/)
-* ユースケース毎に複数最適化する対象がある
 
 ### 4:40 PM
 
 #### Massive-Scale Entity Resolution Using the Power of Apache Spark and Graph
 
 * Max Melnick (Deloitte Consulting LLP)
-
+* [Mission Graph](https://www.missiongraph.ai/)
+* グラフ構造でのERを表す
+* ERは解析可能である
+* 活用例
+	* Cutomer 360
+	* Fraud Deterction
+	* Network Analysis
+	* など
+* 後は淡々とSparkでのGraph構造データの扱い方を説明
+* グラフが全てを解決する訳ではない
 
 ### 5:30 PM
 
 #### Splice Machine's use of Apache Spark and MLflow
 
 * Gene Davis (Splice Machine)
+* なんでSageMaker使わなかったのかわからんかった
+	* 制御したいところが制御できないからに聞こえたが・・・怪しい
