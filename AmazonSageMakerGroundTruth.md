@@ -31,7 +31,7 @@
 
 #### セマンティックセグメンテーションでは矩形選択機能がない
 
-* 帳票の場合は特定すべきピクセルは矩形
+* 特定すべきピクセルは矩形だったりする
 * 現在サポートの方法では矩形自体にばらつきが生じてしまう
 
 #### ラベリング画面は英語
@@ -42,8 +42,7 @@
 #### 出力形式を指定できない
 
 * manifestファイルで結果は出力される
-* SuperPaintやImgLabelで作成した学習データと混ぜられない
-
+* PaintやImgLabelで作成した学習データと混ぜられない
 
 ## SageMaker with Airflow
 
@@ -65,3 +64,7 @@
 
 * インスタンスサイズ等のサイジングや起動・停止運用の検討は必要
 * RDSは高いのでEC2の中にOSSのRDBMS入れるだけでも安上がりになる
+
+### 参考
+
+<https://github.com/aws-samples/sagemaker-ml-workflow-with-apache-airflow>
